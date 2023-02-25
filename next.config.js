@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   i18n: {
-    locales: ['es', 'en', 'pt', 'ca'],
+    locales: ['es', 'en', 'pt'],
     defaultLocale: 'es',
   },
 }
