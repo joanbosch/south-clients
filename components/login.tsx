@@ -18,6 +18,7 @@ export default function LoginComponent({ params: { lang } } : { params: { lang: 
   
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
+    console.log(credentials)
     const response = await axios.post('/api/auth/login', credentials)
     console.log(response)
   }
