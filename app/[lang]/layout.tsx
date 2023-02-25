@@ -1,6 +1,6 @@
 import { dir } from 'i18next'
 
-const languages = ['en', 'es', 'pt'];
+const languages = ['en', 'es', 'pt', 'ca'];
 
 export async function generateStaticParams() {
   return languages.map((lang) => ({ lang }))
