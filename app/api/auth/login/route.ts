@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { serialize } from 'cookie';
+import  executeQuery from '../../../../utils/executeQuery';
 
 export async function POST(request: Request) {
   
@@ -8,7 +9,16 @@ export async function POST(request: Request) {
   });
 
   // Must check with the DB if the email and password are already registered
-  if(email === 'admin@local.local' && password === 'admin') {
+  
+  const results = await executeQuery({
+    query: `SELECT password FROM evtybqup_southclientes.clients where email = '${email}'`,
+  });
+
+  if(results === undefined || results.length === 0) {
+    return new Response('Login Failed: Invalid email or password.', { status: 401 });
+  }
+
+  if(password === results[0].password) {
     const token = jwt.sign({
       exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7), // token valid for 7 days
       email: email
