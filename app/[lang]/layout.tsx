@@ -1,6 +1,6 @@
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
-
+import './globals.css'
 export async function generateStaticParams() {
   return languages.map((lang) => ({ lang }))
 }
