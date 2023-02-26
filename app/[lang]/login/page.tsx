@@ -5,7 +5,6 @@ export default function Login({ params: { lang } } : { params: { lang: string } 
 
   return (
     <>
-      <h1>Hi from login page!</h1>
       <LoginComponent params={{
         lang: lang
       }} />
