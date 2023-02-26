@@ -2,7 +2,12 @@
 import { useState } from "react"
 import axios from "axios"
 
+import { useTranslation } from '../app/i18n/client'
+
+
 export default function LoginComponent({ params: { lang } } : { params: { lang: string } }) {
+
+  const { t } = useTranslation(lang, 'translation')
 
   const [credentials, setCredentials] = useState({
     email: '',
@@ -31,6 +36,7 @@ export default function LoginComponent({ params: { lang } } : { params: { lang: 
 
   return (
     <>
+    <h1>{t('login')}</h1>
       <form onSubmit={handleSubmit}>
         <input type="email" name="email" placeholder='email' onChange={handleChange}/>
         <input type="password" name="password" placeholder='password' onChange={handleChange}/>
