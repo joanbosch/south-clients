@@ -22,9 +22,9 @@ export async function POST(request: Request) {
     const token = jwt.sign({
       exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7), // token valid for 7 days
       email: email
-    }, 'secret')
+    }, process.env.TOKEN_SECRET)
 
-    const serialized = serialize('my-token-name', token, {
+    const serialized = serialize(process.env.TOKEN_NAME, token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       maxAge: 60 * 60 * 24 * 7, // 7 days

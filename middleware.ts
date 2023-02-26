@@ -4,7 +4,7 @@ import { jwtVerify } from 'jose'
 
 export async function middleware(request: NextRequest) {
   
-  let authToken = request.cookies.get('my-token-name')?.value
+  let authToken = request.cookies.get(process.env.TOKEN_NAME)?.value
 
   if(authToken === undefined) {
     return NextResponse.redirect(new URL('/login', request.url))
@@ -12,7 +12,7 @@ export async function middleware(request: NextRequest) {
 
   try
   {
-    await jwtVerify(authToken, new TextEncoder().encode('secret'))
+    await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET))
     return NextResponse.next()
   }
   catch (e)

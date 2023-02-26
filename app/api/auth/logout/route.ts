@@ -7,16 +7,16 @@ export async function POST(request: Request) {
   try
   {
     const cookieStore = cookies();
-    const token = cookieStore.get('my-token-name');
+    const token = cookieStore.get(process.env.TOKEN_NAME);
     const authToken = token?.value;
 
     if(authToken === undefined) {
       return new Response('No token', { status: 401 });
     }
 
-    jwt.verify(authToken, 'secret')
+    jwt.verify(authToken, process.env.TOKEN_SECRET)
 
-    const serialized = serialize('my-token-name', null, {
+    const serialized = serialize(process.env.TOKEN_NAME, null, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       maxAge: 0, // disable cookie
