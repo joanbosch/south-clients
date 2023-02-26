@@ -9,6 +9,11 @@ export async function GET(request: Request) {
     const cookieStore = cookies();
     const token = cookieStore.get('my-token-name');
     const authToken = token?.value;
+    
+    if(authToken === undefined) {
+      return new Response('No token', { status: 401 });
+    }
+
     jwt.verify(authToken, 'secret')
 
     return new Response(JSON.stringify({ clothes: 'cloth123' }), {

@@ -23,6 +23,12 @@ export default function LoginComponent({ params: { lang } } : { params: { lang: 
     console.log(response)
   }
 
+  const handleLogout = async () => {
+    const response = await axios.post('/api/auth/logout')
+    console.log(response)
+  }
+
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -30,6 +36,8 @@ export default function LoginComponent({ params: { lang } } : { params: { lang: 
         <input type="password" name="password" placeholder='password' onChange={handleChange}/>
         <button type="submit">Login</button>
       </form>
+
+      <button onClick={() => handleLogout()}>Logout</button>
     </>
   )
 }
