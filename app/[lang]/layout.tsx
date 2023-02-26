@@ -13,6 +13,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode, params: { lang: string }
 }) {
+  
   return (
     <html lang={lang} dir={dir(lang)}>
       <head />
