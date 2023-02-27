@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
   // Must check with the DB if the email and password are already registered
   
-  const results = await executeQuery({
+  const results: any = await executeQuery({
     query: `SELECT password FROM evtybqup_southclientes.clients where email = '${email}'`,
   });
 
