@@ -1,11 +1,13 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
 import { useTranslation } from '../app/i18n/client'
 
 export default function LoginComponent ({ params: { lang } } : { params: { lang: string } }) {
   const { t } = useTranslation(lang, 'translation')
+  const router = useRouter()
 
   const [credentials, setCredentials] = useState({
     email: '',
@@ -21,9 +23,10 @@ export default function LoginComponent ({ params: { lang } } : { params: { lang:
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    console.log(credentials)
     const response = await axios.post('/api/auth/login', credentials)
-    console.log(response)
+    if (response.status === 200) {
+      router.push('/es/dashboard')
+    }
   }
 
   const handleLogout = async () => {
