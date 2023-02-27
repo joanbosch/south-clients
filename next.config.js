@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    appDir: true
   },
   i18n: {
     locales: ['es', 'en', 'pt'],
-    defaultLocale: 'es',
+    defaultLocale: 'es'
   }
 }
 

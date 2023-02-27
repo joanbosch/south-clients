@@ -3,20 +3,16 @@ import type { NextRequest } from 'next/server'
 import { jwtVerify } from 'jose'
 
 export async function middleware(request: NextRequest) {
-  
-  let authToken = request.cookies.get(process.env.TOKEN_NAME)?.value
+  const authToken = request.cookies.get(process.env.TOKEN_NAME || '')?.value
 
-  if(authToken === undefined) {
+  if (authToken === undefined) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 
-  try
-  {
+  try {
     await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET))
     return NextResponse.next()
-  }
-  catch (e)
-  {
+  } catch (e) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 }

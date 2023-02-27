@@ -1,17 +1,14 @@
-import { cookies } from 'next/headers';
-import jwt from 'jsonwebtoken';
+import { cookies } from 'next/headers'
+import jwt from 'jsonwebtoken'
 
-export async function GET(request: Request) {
+export async function GET (request: Request) {
+  try {
+    const cookieStore = cookies()
+    const token = cookieStore.get('my-token-name')
+    const authToken = token?.value
 
-  
-  try
-  {
-    const cookieStore = cookies();
-    const token = cookieStore.get('my-token-name');
-    const authToken = token?.value;
-    
-    if(authToken === undefined) {
-      return new Response('No token', { status: 401 });
+    if (authToken === undefined) {
+      return new Response('No token', { status: 401 })
     }
 
     jwt.verify(authToken, 'secret')
@@ -19,12 +16,9 @@ export async function GET(request: Request) {
     return new Response(JSON.stringify({ clothes: 'cloth123' }), {
       headers: {
         'content-type': 'application/json'
-     }
-    });
+      }
+    })
+  } catch (e) {
+    return new Response('Unauthorized', { status: 401 })
   }
-  catch (e)
-  {
-    return new Response('Unauthorized', { status: 401 });
-  }
-
 }

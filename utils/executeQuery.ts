@@ -2,31 +2,31 @@ import mysql from 'mysql'
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
-  port: process.env.MYSQL_PORT,
+  port: parseInt(process.env.MYSQL_PORT || '0'),
   database: process.env.MYSQL_DATABASE,
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
-  connectionLimit: 5,
-});
+  connectionLimit: 5
+})
 
-export default async function executeQuery({ query, values = []}: { query: string, values?: any[] }) {
+export default async function executeQuery ({ query, values = [] }: { query: string, values?: any[] }) {
   try {
-    console.log(`Executing query: ${query}`);
+    console.log(`Executing query: ${query}`)
     const results = await new Promise((resolve, reject) => {
       pool.query(query, values, (error: any, results: any) => {
         if (error) {
-          return reject(error);
+          return reject(error)
         }
-        return resolve(results);
-      });
-    });
-    console.log(`Query executed successfully`);
-    return results;
+        return resolve(results)
+      })
+    })
+    console.log('Query executed successfully')
+    return results
   } catch (error) {
     console.log(`
       Error in query: ${error}.
       Query: ${query}.
-    `);
-    throw error;
+    `)
+    throw error
   }
 }
