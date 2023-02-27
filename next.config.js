@@ -3,9 +3,14 @@ const nextConfig = {
   experimental: {
     appDir: true
   },
-  i18n: {
-    locales: ['es', 'en', 'pt'],
-    defaultLocale: 'es'
+  async redirects () {
+    return [
+      {
+        source: '/',
+        destination: '/es',
+        permanent: true
+      }
+    ]
   }
 }
 
