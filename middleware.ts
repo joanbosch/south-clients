@@ -6,14 +6,14 @@ export async function middleware(request: NextRequest) {
   const authToken = request.cookies.get(process.env.TOKEN_NAME || '')?.value
 
   if (authToken === undefined) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return NextResponse.redirect(new URL('/es/login', request.url))
   }
 
   try {
     await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET))
     return NextResponse.next()
   } catch (e) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return NextResponse.redirect(new URL('/es/login', request.url))
   }
 }
 
