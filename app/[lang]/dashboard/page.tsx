@@ -1,9 +1,8 @@
-"use client"
+'use client'
 
-import axios from "axios"
+import axios from 'axios'
 
-export default function Dashboard() {
-
+export default function Dashboard () {
   const getProfile = async () => {
     const response = await axios.get('/api/clothes')
     console.log(response)
