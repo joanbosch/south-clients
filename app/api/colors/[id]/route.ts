@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 import { cookies } from 'next/headers'
-import executeQuery from '../../../utils/executeQuery'
+import executeQuery from '../../../../utils/executeQuery'
 
-export async function GET (request: Request) {
+export async function GET (request: Request, { params: { id } } : { params: { id: string } }) {
   try {
     const cookieStore = cookies()
     const token = cookieStore.get(process.env.TOKEN_NAME || '')
@@ -15,10 +15,10 @@ export async function GET (request: Request) {
     jwt.verify(authToken, process.env.TOKEN_SECRET || '')
 
     const results: any = await executeQuery({
-      query: ""
+      query: `${id ? `WHERE id = ${id}` : ''}`
     })
 
-    const respone = new Response(JSON.stringify(results))
+    const respone = new Response(JSON.stringify(results[0]))
     respone.headers.set('Content-Type', 'application/json')
     return respone
   } catch (e) {
