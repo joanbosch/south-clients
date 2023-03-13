@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { cookies } from 'next/headers'
-import executeQuery from '../../../utils/executeQuery'
+import executeQuery from '../../../../utils/executeQuery'
 
 export async function GET (request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function GET (request: Request) {
     jwt.verify(authToken, process.env.TOKEN_SECRET || '')
 
     const results: any = await executeQuery({
-      query: ""
+      query: "SELECT id as 'id', name as 'name' FROM evtybqup_southclientes.clothes_size"
     })
 
     const respone = new Response(JSON.stringify(results))

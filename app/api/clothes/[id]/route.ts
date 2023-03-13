@@ -15,7 +15,7 @@ export async function GET (request: Request, { params: { id } } : { params: { id
     jwt.verify(authToken, process.env.TOKEN_SECRET || '')
 
     const results: any = await executeQuery({
-      query: `${id ? `WHERE id = ${id}` : ''}`
+      query: `SELECT id as 'id', name as 'name', price as 'price', idColor as 'idColor', idType as 'idType' FROM evtybqup_southclientes.vclothes ${id ? `WHERE id = ${id}` : ''}`
     })
 
     const respone = new Response(JSON.stringify(results[0]))
