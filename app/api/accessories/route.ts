@@ -15,7 +15,7 @@ export async function GET (request: Request) {
     jwt.verify(authToken, process.env.TOKEN_SECRET || '')
 
     const results: any = await executeQuery({
-      query: "SELECT id as 'id', name as 'name', price as 'price', idSize as 'idSize'  FROM vaccessories"
+      query: "SELECT id as 'id', name as 'ame', price as 'price', idSize as 'idSize'  FROM vaccessories"
     })
 
     const respone = new Response(JSON.stringify(results))
