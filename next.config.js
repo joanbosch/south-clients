@@ -32,6 +32,16 @@ const nextConfig = {
         ]
       }
     ]
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.southoriginal.com',
+        port: '',
+        pathname: '/wp-content/uploads/**'
+      }
+    ]
   }
 }
 
