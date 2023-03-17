@@ -1,18 +1,25 @@
-'use client'
+import ProductCard from '@/components/ProductCard'
 
-import axios from 'axios'
 
-export default function Dashboard () {
-  const getProfile = async () => {
-    const response = await axios.get('/api/clothes')
-    console.log(response)
-  }
+async function getProducts () {
+  const res = await fetch('http://localhost:3000/api/products', {
+    next: { revalidate: 10 },
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  return res.json()
+}
+
+export default async function Dashboard () {
+  const products = await getProducts()
   return (
     <div>
-      <h1>Dashboard</h1>
-      <button onClick={() => getProfile()}>
-        get clothes
-      </button>
+      {products.map((product: any) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   )
 }

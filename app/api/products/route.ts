@@ -4,16 +4,6 @@ import executeQuery from '../../../utils/executeQuery'
 
 export async function GET (request: Request) {
   try {
-    const cookieStore = cookies()
-    const token = cookieStore.get(process.env.TOKEN_NAME || '')
-    const authToken = token?.value
-
-    if (authToken === undefined) {
-      return new Response('No token', { status: 401 })
-    }
-
-    jwt.verify(authToken, process.env.TOKEN_SECRET || '')
-
     const results: any = await executeQuery({
       query: "SELECT id as 'id', name as 'name', price as 'price', img1 as 'img1', img2 as 'img2', img3 as 'img3', img4 as 'img4' FROM evtybqup_southclientes.products;"
     })
