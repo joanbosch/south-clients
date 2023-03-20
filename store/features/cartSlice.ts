@@ -35,26 +35,31 @@ export const cartSlice = createSlice({
 })
 
 const cartItems = (state: any) => state.cart.cartItems
-export const totalCartItemSelector = createSelector([cartItems], (cartItems) => {
-  return cartItems.reduce((total: number, curr: CartItem) => total + curr.quantity, 0)
-})
 
-export const productQuantitySelector = createSelector([cartItems, (cartItems, productId: number) => productId],
-  (cartItems, productId) => {
-    // eslint-disable-next-line no-unused-expressions
-    cartItems.find((element:any) => element.product.id === productId)?.quantity
-  }
-)
+export const productQtyInCartSelector = createSelector(
+  [cartItems, (cartItems, productId: number) => productId],
+  (cartItems, productId) =>
+    cartItems.find((el: any) => el.product.id === productId)?.quantity
+);
 
-export const totalCartPriceSelector = createSelector([cartItems], (cartItems) => {
-  // eslint-disable-next-line no-return-assign
-  return cartItems.reduce((total: number, curr: CartItem) => (total += curr.product.price * curr.quantity), 0)
-})
-
-export const producQuantitySelector = (productId: number) => createSelector([cartItems], (cartItems) => {
-  const item = cartItems.find((element:any) => element.product.id === productId)
-  return item ? item.quantity : 0
-})
+export const totalCartItemsSelector = createSelector(
+  [cartItems],
+  (cartItems) =>
+    cartItems.reduce(
+      (total: number, curr: CartItem) =>
+        (total += curr.quantity),
+      0
+    )
+);
+export const TotalPriceSelector = createSelector(
+  [cartItems],
+  (cartItems) =>
+    cartItems.reduce(
+      (total: number, curr: CartItem) =>
+        (total += curr.quantity * curr.product.price),
+      0
+    )
+);
 
 export const { increment, decrement } = cartSlice.actions
 export default cartSlice.reducer
