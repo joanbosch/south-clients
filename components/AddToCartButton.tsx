@@ -1,9 +1,10 @@
 'use client'
 
 import { Product } from '@/interfaces'
-import { increment, productQtyInCartSelector } from '@/store/features/cartSlice'
+import { decrement, increment, productQtyInCartSelector } from '@/store/features/cartSlice'
 import { useAppDispatch, useAppSelector } from '@/store/store'
 import { Button } from './elements/Button'
+import QtyBtn from './QtyBtn'
 
 interface Props {
   product: Product;
@@ -22,7 +23,11 @@ const AddToCartBtn = (props: Props) => {
     )
   } else {
     return (
-      <div> </div>
+      <QtyBtn
+        onIncrease={() => dispatch(increment(props.product))}
+        onDecrease={() => dispatch(decrement(props.product))}
+        quantity={quantity}
+      />
     )
   }
 }
