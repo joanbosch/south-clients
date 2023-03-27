@@ -10,6 +10,7 @@
     "lint-fix": "npx eslint app/ components/ utils/ --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.16",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/node": "18.14.1",
     "@types/react": "18.0.28",

@@ -24,7 +24,7 @@ const CartPage = () => {
         </span>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default CartPage;
+export default CartPage
