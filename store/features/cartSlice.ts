@@ -40,7 +40,7 @@ export const productQtyInCartSelector = createSelector(
   [cartItems, (cartItems, productId: number) => productId],
   (cartItems, productId) =>
     cartItems.find((el: any) => el.product.id === productId)?.quantity
-);
+)
 
 export const totalCartItemsSelector = createSelector(
   [cartItems],
@@ -50,7 +50,7 @@ export const totalCartItemsSelector = createSelector(
         (total += curr.quantity),
       0
     )
-);
+)
 export const TotalPriceSelector = createSelector(
   [cartItems],
   (cartItems) =>
@@ -59,7 +59,13 @@ export const TotalPriceSelector = createSelector(
         (total += curr.quantity * curr.product.price),
       0
     )
-);
+)
+
+export const CartItems = createSelector(
+  [cartItems],
+  (cartItems: CartItem[]) =>
+    cartItems
+)
 
 export const { increment, decrement } = cartSlice.actions
 export default cartSlice.reducer
