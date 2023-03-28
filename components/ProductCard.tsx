@@ -1,7 +1,7 @@
 import { Product } from '@/interfaces'
 import React from 'react'
 import Image from 'next/image'
-import AddToCartBtn from './AddToCartButton';
+import AddToCartBtn from './AddToCartButton'
 
 interface Props {
   product: Product;
