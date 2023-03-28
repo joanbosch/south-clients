@@ -18,9 +18,9 @@ const CartPage = () => {
       ))}
 
       <p className='text-slate-600'>
-        Total Price:{' '}
+        Precio Total:{' '}
         <span className='text-slate-900 font-bold'>
-          {totalPrice} $
+          {totalPrice} €
         </span>
       </p>
     </div>

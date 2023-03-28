@@ -38,7 +38,7 @@ const CartItemCard = ({ cartItem }: Props) => {
         />
       </div>
       <p className='text-center'>
-        {cartItem.quantity * cartItem.product.price} $
+        {cartItem.quantity * cartItem.product.price} €
       </p>
     </div>
   )
