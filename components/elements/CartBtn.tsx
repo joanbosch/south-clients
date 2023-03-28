@@ -16,12 +16,12 @@ const CartBtn = (props: Props) => {
   const totalItems = useAppSelector(totalCartItemsSelector)
   return (
     <div className={`${props.className} relative`}>
-      <ShoppingCartIcon className='w-9 text-slate-600' />
+      <ShoppingCartIcon className='w-7 text-slate-600' />
       {!!totalItems && (
         <div
           key={totalItems}
           className='bg-red-500 flex justify-center items-center
-        rounded-full w-6 absolute -top-2 -right-2 text-white animate-pingOnce
+        rounded-full w-5 h-5 absolute -top-1 -right-2 text-white
         '
         >
           {totalItems}
