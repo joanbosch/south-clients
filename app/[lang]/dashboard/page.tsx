@@ -1,7 +1,7 @@
 import ProductCard from '@/components/ProductCard'
 
 async function getProducts () {
-  const res = await fetch(process.env.API_URL + '/api/products', {
+  /* const res = await fetch(process.env.API_URL + '/api/products', {
     next: { revalidate: 10 },
     method: 'GET',
     headers: {
@@ -9,7 +9,8 @@ async function getProducts () {
       'Content-Type': 'application/json'
     }
   })
-  return res.json()
+  return res.json() */
+  return []
 }
 
 export default async function Dashboard () {
