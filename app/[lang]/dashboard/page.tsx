@@ -1,7 +1,7 @@
 import ProductCard from '@/components/ProductCard'
 
 async function getProducts () {
-  const res = await fetch('http://localhost:3000/api/products', {
+  const res = await fetch(process.env.API_URL + '/api/products', {
     next: { revalidate: 10 },
     method: 'GET',
     headers: {
