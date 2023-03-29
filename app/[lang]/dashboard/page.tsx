@@ -15,10 +15,14 @@ async function getProducts () {
 export default async function Dashboard () {
   const products = await getProducts()
   return (
-    <div className='p-4 flex flex-wrap gap-4'>
-      {products.map((product: any) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <main>
+      <div className='mx-auto max-w-7xl py-6 sm:px-6 lg:px-8'>
+        <div className='p-4 flex flex-wrap gap-4'>
+          {products.map((product: any) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </div>
+    </main>
   )
 }
