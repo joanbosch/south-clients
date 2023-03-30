@@ -23,6 +23,7 @@ export default function LoginComponent ({ params: { lang } } : { params: { lang:
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
+    console.log('login')
     const response = await axios.post('/api/auth/login', credentials)
     if (response.status === 200) {
       router.push('/es/dashboard')
