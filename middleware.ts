@@ -4,7 +4,7 @@ import { jwtVerify } from 'jose'
 
 export async function middleware (request: NextRequest) {
   console.log('middleware')
-  const authToken = request.cookies.get(process.env.TOKEN_NAME || '')?.value
+  const authToken = request.cookies.get(process.env.TOKEN_NAME || 'prodSouthUserToken')?.value
 
   if (authToken === undefined) {
     console.log('authToken undefined')
@@ -12,7 +12,7 @@ export async function middleware (request: NextRequest) {
   }
 
   try {
-    await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET))
+    await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET || 'Pr0d/Qu?$OuThC1eN73s@'))
     return NextResponse.next()
   } catch (e) {
     return NextResponse.redirect(new URL('/es/login', request.url))
