@@ -11,12 +11,12 @@ export async function middleware (request: NextRequest) {
     return NextResponse.redirect(new URL('/es/login', request.url))
   }
 
-  try {
-    await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET || 'Pr0d/Qu?$OuThC1eN73s@'))
-    return NextResponse.next()
-  } catch (e) {
-    return NextResponse.redirect(new URL('/es/login', request.url))
-  }
+  // try {
+  //   await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET || 'Pr0d/Qu?$OuThC1eN73s@'))
+  //   return NextResponse.next()
+  // } catch (e) {
+  //   return NextResponse.redirect(new URL('/es/login', request.url))
+  // }
 }
 
 export const config = {
