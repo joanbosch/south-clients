@@ -10,14 +10,13 @@ export async function middleware (request: NextRequest) {
     console.log('authToken undefined')
     return NextResponse.redirect(new URL('/es/login', request.url))
   }
-  return NextResponse.next()
 
-  // try {
-  //   await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET))
-  //   return NextResponse.next()
-  // } catch (e) {
-  //   return NextResponse.redirect(new URL('/es/login', request.url))
-  // }
+  try {
+    await jwtVerify(authToken, new TextEncoder().encode(process.env.TOKEN_SECRET))
+    return NextResponse.next()
+  } catch (e) {
+    return NextResponse.redirect(new URL('/es/login', request.url))
+  }
 }
 
 export const config = {
