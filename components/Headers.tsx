@@ -126,7 +126,7 @@ const Headers = () => {
         <p className='text-white font-sans font-semibold tracking-widest text-xs sm:text-sm md:text-base'> CHANGING THE WORLD FROM SOUTH TO NORD</p>
       </div>
     </>
-    )
+  )
 }
 
 export default Headers
