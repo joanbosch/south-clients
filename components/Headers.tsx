@@ -23,7 +23,7 @@ const Headers = () => {
           <div className='flex h-16 items-center justify-between'>
             <div className='flex items-center'>
               <div className='mr-2 flex md:hidden'>
-                <button type='button' className='inline-flex items-center justify-center rounded-md bg-southClearBrown2-800 p-2 text-gray-400 hover:bg-southClearBrown2-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-southClearBrown2-800' aria-controls='mobile-menu' aria-expanded='false' onClick={() => toggleVisibleMobileUserOptions()}>
+                <button type='button' className='inline-flex items-center justify-center rounded-md bg-southClearBrown2-800 p-2' aria-controls='mobile-menu' aria-expanded='false' onClick={() => toggleVisibleMobileUserOptions()}>
                   <span className='sr-only'>Open main menu</span>
 
                   <svg className='block h-6 w-6' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'>
@@ -49,7 +49,7 @@ const Headers = () => {
               <Link href='/es/dashboard'>
                 <h1 className='m-auto font-sans tracking-widest pr-2 text-southBrown'> SOUTH ORIGINAL </h1>
               </Link>
-              <Image src='/SOUTH_logo_NONAME.png' alt='South Original Picture' width={45} height={32} />
+              <Image className='hidden md:block' src='/SOUTH_logo_NONAME.png' alt='South Original Picture' width={45} height={32} />
             </div>
             <div className='md:block'>
               <div className='ml-4 flex items-center md:ml-6'>
@@ -85,11 +85,11 @@ const Headers = () => {
             <div className='md:hidden' id='mobile-menu'>
               <div className='space-y-1 px-2 pt-2 pb-3 sm:px-3'>
 
-                <a href='#' className='bg-southClearBrown2-900 text-white block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Artículos</a>
+                <a href='#' className='bg-southClearBrown2-900 text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Artículos</a>
 
-                <a href='#' className='text-white hover:bg-text-white-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>Ropa</a>
+                <a href='#' className='text-black hover:bg-text-white-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>Ropa</a>
 
-                <a href='#' className='text-white hover:bg-southClearBrown2-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>Accesorios</a>
+                <a href='#' className='text-black hover:bg-southClearBrown2-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>Accesorios</a>
               </div>
               <div className='border-t border-gray-700 pt-4 pb-3'>
                 <div className='flex items-center px-5'>
@@ -98,9 +98,9 @@ const Headers = () => {
                   </div>
                   <div className='ml-3'>
                     <div className='text-base font-medium leading-none text-black'>Tom Cook</div>
-                    <div className='text-sm font-medium leading-none text-white'>tom@example.com</div>
+                    <div className='text-sm font-medium leading-none text-black'>tom@example.com</div>
                   </div>
-                  <button type='button' className='ml-auto flex-shrink-0 rounded-full bg-southClearBrown2-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+                  <button type='button' className='ml-auto flex-shrink-0 rounded-full bg-southClearBrown2-800 p-1 text-black hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
                     <span className='sr-only'>View notifications</span>
                     <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'>
                       <path stroke-linecap='round' stroke-linejoin='round' d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0' />
@@ -108,11 +108,11 @@ const Headers = () => {
                   </button>
                 </div>
                 <div className='mt-3 space-y-1 px-2'>
-                  <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-southClearBrown2-700 hover:text-white'>Tu perfil</a>
+                  <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-southClearBrown2-700 hover:text-white'>Tu perfil</a>
 
-                  <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-southClearBrown2-700 hover:text-white'>Ajustes</a>
+                  <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-southClearBrown2-700 hover:text-white'>Ajustes</a>
 
-                  <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-southClearBrown2-700 hover:text-white'>Cerrar sesión</a>
+                  <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-southClearBrown2-700 hover:text-white'>Cerrar sesión</a>
                 </div>
               </div>
             </div>
@@ -120,14 +120,8 @@ const Headers = () => {
           : <></>}
       </nav>
       <div className='flex justify-center items-center bg-southBrown h-10'>
-        <p className='text-white font-sans font-semibold tracking-widest'> CHANGING THE WORLD FROM SOUTH TO NORD</p>
+        <p className='text-white font-sans font-semibold tracking-widest text-xs sm:text-sm md:text-base'> CHANGING THE WORLD FROM SOUTH TO NORD</p>
       </div>
-
-      <header className='bg-white shadow'>
-        <div className='mx-auto max-w-7xl py-3 '>
-          <h1 className='text-2xl font-bold tracking-tight text-gray-900 mx-auto center-text'>Todos los artículos</h1>
-        </div>
-      </header>
     </>
   )
 }

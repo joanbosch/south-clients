@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  ShoppingCartIcon
+  ShoppingBagIcon
 } from '@heroicons/react/24/solid'
 import React from 'react'
 import {
@@ -16,7 +16,7 @@ const CartBtn = (props: Props) => {
   const totalItems = useAppSelector(totalCartItemsSelector)
   return (
     <div className={`${props.className} relative`}>
-      <ShoppingCartIcon className='w-7 text-southClearBrown-600' />
+      <ShoppingBagIcon className='w-7 text-southClearBrown-600' />
       {!!totalItems && (
         <div
           key={totalItems}
