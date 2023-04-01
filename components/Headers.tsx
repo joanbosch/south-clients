@@ -22,7 +22,9 @@ const Headers = () => {
           <div className='flex h-16 items-center justify-between'>
             <div className='flex items-center'>
               <div className='flex-shrink-0'>
-                <img className='h-8 w-8' src='https://www.southoriginal.com/wp-content/uploads/2023/01/logo_fondo_blanco.png' alt='Your Company' />
+                <Link href='/es/dashboard'>
+                  <img className='h-8 w-8' src='https://www.southoriginal.com/wp-content/uploads/2023/01/logo_fondo_blanco.png' alt='Your Company' />
+                </Link>
               </div>
               <div className='hidden md:block'>
                 <div className='ml-10 flex items-baseline space-x-4'>
@@ -62,7 +64,13 @@ const Headers = () => {
               </div>
             </div>
 
-            <div className='-mr-2 flex md:hidden'>
+            <div className='mr-2 flex md:hidden'>
+              <div className='mr-3 flex items-center md:ml-6'>
+                <Link href='/es/dashboard/cart'>
+                  <CartBtn />
+                </Link>
+              </div>
+
               <button type='button' className='inline-flex items-center justify-center rounded-md bg-southClearBrown2-800 p-2 text-gray-400 hover:bg-southClearBrown2-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-southClearBrown2-800' aria-controls='mobile-menu' aria-expanded='false' onClick={() => toggleVisibleMobileUserOptions()}>
                 <span className='sr-only'>Open main menu</span>
 
