@@ -45,10 +45,11 @@ const Headers = () => {
                 </div>
               </div>
             </div>
-            <div className='h-screen flex items-center'>
+            <div className='h-screen flex items-center absolute left-1/2 transform -translate-x-1/2'>
               <Link href='/es/dashboard'>
-                <h1 className='m-auto font-bold'> SOUTH ORIGINAL </h1>
+                <h1 className='m-auto font-sans tracking-widest pr-2 text-southBrown'> SOUTH ORIGINAL </h1>
               </Link>
+              <Image src='/SOUTH_logo_NONAME.png' alt='South Original Picture' width={45} height={32} />
             </div>
             <div className='md:block'>
               <div className='ml-4 flex items-center md:ml-6'>
@@ -118,10 +119,13 @@ const Headers = () => {
             )
           : <></>}
       </nav>
+      <div className='flex justify-center items-center bg-southBrown h-10'>
+        <p className='text-white font-sans font-semibold tracking-widest'> CHANGING THE WORLD FROM SOUTH TO NORD</p>
+      </div>
 
       <header className='bg-white shadow'>
-        <div className='mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8'>
-          <h1 className='text-3xl font-bold tracking-tight text-gray-900 mx-auto center-text'>Todos los artículos</h1>
+        <div className='mx-auto max-w-7xl py-3 '>
+          <h1 className='text-2xl font-bold tracking-tight text-gray-900 mx-auto center-text'>Todos los artículos</h1>
         </div>
       </header>
     </>

@@ -17,7 +17,7 @@ export default function RootLayout ({
   return (
     <html lang={lang} dir={dir(lang)}>
       <head />
-      <body>
+      <body className='font-sans'>
         {children}
       </body>
     </html>
