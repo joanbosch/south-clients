@@ -13,7 +13,7 @@ type VariantType =
 const getVariant = (variant?: VariantType) => {
   switch (variant) {
     case 'primary':
-      return 'bg-violet-500 hover:bg-violet-700  text-white shadow shadow-violet-600/25 hover:shadow-violet-600/75'
+      return 'bg-southBlue-500 hover:bg-southBlue-700  text-white shadow shadow-southBlue-600/25 hover:shadow-southBlue-600/75'
     case 'danger':
       return 'bg-red-500 hover:bg-red-700 text-white  shadow shadow-red-600/25 hover:shadow-red-600/75'
     case 'success':
@@ -45,7 +45,7 @@ export interface IButtonProps
 export const Button = ({
   className,
   children,
-  variant,
+  variant = 'primary',
   square,
   paddingLess,
   type = 'button',
