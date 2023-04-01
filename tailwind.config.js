@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         southDark: '#272d30',
         southGray: '#c3c2c6',
-        southBrown: '#473826'
+        southBrown: '#473826',
+        southBrownLight: '#e7cab2'
       }
     }
   },
