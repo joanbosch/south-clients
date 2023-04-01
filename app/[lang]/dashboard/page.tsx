@@ -18,7 +18,7 @@ export default async function Dashboard () {
   return (
     <main>
       <div className='mx-auto max-w-7xl py-6 sm:px-6 lg:px-8'>
-        <div className='p-4 flex flex-wrap gap-4'>
+        <div className='p-4 flex flex-wrap gap-4 justify-center'>
           {products.map((product: any) => (
             <ProductCard key={product.id} product={product} />
           ))}
