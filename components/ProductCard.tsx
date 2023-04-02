@@ -12,12 +12,12 @@ const ProductCard = (props: Props) => {
     <div className='border rounded-md shadow hover:shadow-lg transition overflow-hidden '>
       <Image
         src={props.product.img1}
-        width={200}
-        height={200}
+        width={210}
+        height={150}
         alt={props.product.name}
       />
       <div className='p-2'>
-        <h6 className='text-center text-slate-600'>
+        <h6 className='text-center text-slate-600 max-w-'>
           {props.product.name}
         </h6>
         <p className='text-center text-slate-600'>

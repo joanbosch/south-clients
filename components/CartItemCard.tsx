@@ -27,7 +27,7 @@ const CartItemCard = ({ cartItem }: Props) => {
         {cartItem.product.name}
       </p>
       <div className='flex flex-col items-center justify-center gap-3'>
-        <p>{cartItem.product.price} $</p>
+        <p>{cartItem.product.price} €</p>
         <p>&#xd7;</p>
         <QtyBtn
           quantity={cartItem.quantity}

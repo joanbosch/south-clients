@@ -12,16 +12,21 @@ const CartPage = () => {
 
   const totalPrice = useAppSelector(TotalPriceSelector)
   return (
-    <div className='p-2'>
+    <div className='p-2 '>
       {cartItems.map((item) => (
         <CartItemCard key={item.product.id} cartItem={item} />
       ))}
 
-      <p className='text-slate-600'>
-        Precio Total:{' '}
-        <span className='text-slate-900 font-bold'>
+      <p className='text-slate-600 text-right'>
+        TOTAL:{' '}
+        <span className='text-slate-900 font-bold '>
           {totalPrice} €
         </span>
+        <div className='flex justify-end '>
+          <button onClick={() => {}}>
+            Proceder al pago
+          </button>
+        </div>
       </p>
     </div>
   )

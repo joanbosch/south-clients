@@ -22,7 +22,7 @@ export default async function Dashboard () {
           <h1 className='text-1xl font-bold tracking-tight text-gray-900 mx-auto center-text'>Todos los artículos</h1>
         </div>
       </header>
-      <div className='mx-auto max-w-7xl py-6 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-5xl py-6 sm:px-6 lg:px-8'>
         <div className='p-4 flex flex-wrap gap-4 justify-center'>
           {products.map((product: any) => (
             <ProductCard key={product.id} product={product} />

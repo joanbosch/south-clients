@@ -17,7 +17,7 @@ const AddToCartBtn = (props: Props) => {
     return (
       <div className='flex justify-center'>
         <Button onClick={() => dispatch(increment(props.product))}>
-          Add to Cart
+          Añadir
         </Button>
       </div>
     )
