@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <div className='flex justify-center items-center bg-southBrown h-0.5' />
       <div className='flex justify-center items-center '>
-        <div className='grid md:grid-cols-3 gap-20 pb-4 pt-4'>
+        <div className='grid md:grid-cols-3 gap-5 md:gap-20 pb-4 pt-4'>
           <div className='grid grid-rows-3 gap-2'>
             <span className='text-xl font-bold text-center text-southBrown'>SOUTH ORIGINAL</span>
             <div className='col-span-1 flex justify-center items-center'>
