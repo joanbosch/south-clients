@@ -39,9 +39,9 @@ const Headers = () => {
                 <div className='flex items-baseline space-x-4'>
                   <Link href='/es/dashboard' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium' aria-current='page'>Tienda</Link>
 
-                  <Link href='#' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Ropa</Link>
+                  <Link href='/es/dashboard' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Ropa</Link>
 
-                  <Link href='#' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Accesorios</Link>
+                  <Link href='/es/dashboard' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Accesorios</Link>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const Headers = () => {
 
                         <Link href='/es/dashboard/settings' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-1'>Ajustes</Link>
 
-                        <Link href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-2'>Cerrar sesión</Link>
+                        <Link href='/es/login' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-2'>Cerrar sesión</Link>
                       </div>
                       )
                     : <></>}
@@ -118,7 +118,7 @@ const Headers = () => {
 
                     <Link href='/es/dashboard/settings' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Ajustes</Link>
 
-                    <Link href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Cerrar sesión</Link>
+                    <Link href='/es/login' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Cerrar sesión</Link>
                   </div>
                 </div>
               </div>
