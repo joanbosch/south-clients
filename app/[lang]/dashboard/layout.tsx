@@ -3,7 +3,7 @@
 import Providers from '../../../components/Providers'
 import Headers from '../../../components/Headers'
 import React from 'react'
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer'
 
 export default function Layout ({
   children
