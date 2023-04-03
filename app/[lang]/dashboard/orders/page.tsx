@@ -10,10 +10,13 @@ const CartPage = () => {
   )
 
   return (
-    <div className='p-2 '>
-      {cartItems.map((item) => (
-        <Order key={item.product.id} cartItem={item} />
-      ))}
+
+    <div className='flex justify-center'>
+      <div className='grid grid-rows-3 gap-4 mx-auto pl-10 pr-10'>
+        {cartItems.map((item) => (
+          <Order key={item.product.id} cartItem={item} />
+        ))}
+      </div>
     </div>
   )
 }
