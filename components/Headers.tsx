@@ -67,11 +67,11 @@ const Headers = () => {
                   {showMenu
                     ? (
                       <div className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none' role='menu' aria-orientation='vertical' aria-labelledby='user-menu-button'>
-                        <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Tu perfil</a>
+                        <a href='/es/dashboard/profile' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Tu perfil</a>
 
-                        <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Mis pedidos</a>
+                        <a href='/es/dashboard/orders' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Mis pedidos</a>
 
-                        <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-1'>Ajustes</a>
+                        <a href='/es/dashboard/settings' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-1'>Ajustes</a>
 
                         <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-2'>Cerrar sesión</a>
                       </div>
@@ -89,11 +89,9 @@ const Headers = () => {
               <div className='md:hidden bg-white' id='mobile-menu'>
                 <div className='space-y-1 px-2 pt-2 pb-3 sm:px-3'>
 
-                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Artículos</a>
+                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Tienda</a>
 
-                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Mis pedidos</a>
-
-                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium'>Ropa</a>
+                  <a href='/es/dashboard/orders' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Ropa</a>
 
                   <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium'>Accesorios</a>
                 </div>
@@ -114,9 +112,11 @@ const Headers = () => {
                     </button>
                   </div>
                   <div className='mt-3 space-y-1 px-2'>
-                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Tu perfil</a>
+                    <a href='/es/dashboard/profile' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Tu perfil</a>
 
-                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Ajustes</a>
+                    <a href='/es/dashboard/orders' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Mis pedidos</a>
+
+                    <a href='/es/dashboard/settings' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Ajustes</a>
 
                     <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Cerrar sesión</a>
                   </div>
