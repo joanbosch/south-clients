@@ -39,9 +39,9 @@ const Headers = () => {
                 <div className='flex items-baseline space-x-4'>
                   <Link href='/es/dashboard' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium' aria-current='page'>Tienda</Link>
 
-                  <a href='#' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Ropa</a>
+                  <Link href='#' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Ropa</Link>
 
-                  <a href='#' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Accesorios</a>
+                  <Link href='#' className='text-black hover:font-bold rounded-md px-3 py-2 text-sm font-medium'>Accesorios</Link>
                 </div>
               </div>
             </div>
@@ -67,13 +67,13 @@ const Headers = () => {
                   {showMenu
                     ? (
                       <div className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none' role='menu' aria-orientation='vertical' aria-labelledby='user-menu-button'>
-                        <a href='/es/dashboard/profile' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Tu perfil</a>
+                        <Link href='/es/dashboard/profile' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Tu perfil</Link>
 
-                        <a href='/es/dashboard/orders' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Mis pedidos</a>
+                        <Link href='/es/dashboard/orders' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Mis pedidos</Link>
 
-                        <a href='/es/dashboard/settings' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-1'>Ajustes</a>
+                        <Link href='/es/dashboard/settings' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-1'>Ajustes</Link>
 
-                        <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-2'>Cerrar sesión</a>
+                        <Link href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-2'>Cerrar sesión</Link>
                       </div>
                       )
                     : <></>}
@@ -89,11 +89,11 @@ const Headers = () => {
               <div className='md:hidden bg-white' id='mobile-menu'>
                 <div className='space-y-1 px-2 pt-2 pb-3 sm:px-3'>
 
-                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Tienda</a>
+                  <Link href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Tienda</Link>
 
-                  <a href='/es/dashboard/orders' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Ropa</a>
+                  <Link href='/es/dashboard/orders' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Ropa</Link>
 
-                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium'>Accesorios</a>
+                  <Link href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium'>Accesorios</Link>
                 </div>
                 <div className='border-t border-gray-700 pt-4 pb-3'>
                   <div className='flex items-center px-5'>
@@ -112,13 +112,13 @@ const Headers = () => {
                     </button>
                   </div>
                   <div className='mt-3 space-y-1 px-2'>
-                    <a href='/es/dashboard/profile' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Tu perfil</a>
+                    <Link href='/es/dashboard/profile' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Tu perfil</Link>
 
-                    <a href='/es/dashboard/orders' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Mis pedidos</a>
+                    <Link href='/es/dashboard/orders' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Mis pedidos</Link>
 
-                    <a href='/es/dashboard/settings' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Ajustes</a>
+                    <Link href='/es/dashboard/settings' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Ajustes</Link>
 
-                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Cerrar sesión</a>
+                    <Link href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Cerrar sesión</Link>
                   </div>
                 </div>
               </div>
