@@ -69,6 +69,8 @@ const Headers = () => {
                       <div className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none' role='menu' aria-orientation='vertical' aria-labelledby='user-menu-button'>
                         <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Tu perfil</a>
 
+                        <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-0'>Mis pedidos</a>
+
                         <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-1'>Ajustes</a>
 
                         <a href='#' className='block px-4 py-2 text-sm text-gray-700' role='menuitem' id='user-menu-item-2'>Cerrar sesión</a>
@@ -89,9 +91,11 @@ const Headers = () => {
 
                   <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Artículos</a>
 
-                  <a href='#' className='text-black hover:bg-text-white-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>Ropa</a>
+                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium' aria-current='page'>Mis pedidos</a>
 
-                  <a href='#' className='text-black hover:bg-southClearBrown2-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>Accesorios</a>
+                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium'>Ropa</a>
+
+                  <a href='#' className='text-black block rounded-md px-3 py-2 text-base font-medium'>Accesorios</a>
                 </div>
                 <div className='border-t border-gray-700 pt-4 pb-3'>
                   <div className='flex items-center px-5'>
@@ -110,11 +114,11 @@ const Headers = () => {
                     </button>
                   </div>
                   <div className='mt-3 space-y-1 px-2'>
-                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-southClearBrown2-700 hover:text-white'>Tu perfil</a>
+                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Tu perfil</a>
 
-                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-southClearBrown2-700 hover:text-white'>Ajustes</a>
+                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Ajustes</a>
 
-                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-southClearBrown2-700 hover:text-white'>Cerrar sesión</a>
+                    <a href='#' className='block rounded-md px-3 py-2 text-base font-medium text-black '>Cerrar sesión</a>
                   </div>
                 </div>
               </div>
