@@ -9,25 +9,49 @@ export default function RegisterComponent ({ params: { lang } } : { params: { la
   // const { t } = useTranslation(lang, 'translation')
   const router = useRouter()
 
-  const [credentials, setCredentials] = useState({
+  const [userData, setUserData] = useState({
+    name: '',
+    surname: '',
+    phone: '',
     email: '',
-    password: ''
+    confirmEmail: '',
+    password: '',
+    confirmPassword: '',
+    adress: '',
+    adressOptional: '',
+    country: '',
+    province: '',
+    city: '',
+    postalCode: '',
+    businessName: '',
+    NIF: ''
   })
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
-    setCredentials({
-      ...credentials,
+    setUserData({
+      ...userData,
       [e.target.name]: e.target.value
     })
   }
 
+  const checkData = () => {
+    if (userData.password !== userData.confirmPassword) {
+      console.log('contraseñas no coinciden')
+    } else if (userData.email !== userData.confirmEmail) {
+      console.log('emails no coinciden')
+    } else {
+      console.log('todo correcto')
+    }
+  }
+
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    console.log('login')
-    const response = await axios.post('/api/auth/register', credentials)
-    if (response.status === 200) {
-      router.push('/es/dashboard')
-    }
+    console.log(userData)
+    checkData()
+    // const response = await axios.post('/api/auth/register', userData)
+    // if (response.status === 200) {
+    //   router.push('/es/dashboard')
+    // }
   }
 
   return (
@@ -73,14 +97,14 @@ export default function RegisterComponent ({ params: { lang } } : { params: { la
                   <input type='text' onChange={handleChange} name='adress' required id='adress' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
-                  <label htmlFor='adress_opt' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Datos adicionales dirección</label>
-                  <input type='text' onChange={handleChange} name='adress_opt' required id='adress_opt' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                  <label htmlFor='adressOptional' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Datos adicionales dirección</label>
+                  <input type='text' onChange={handleChange} name='adressOptional' required id='adressOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
                   <label htmlFor='country' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>País*</label>
                   <select onChange={handleChange} name='country' required id='country' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500'>
                     <option value=''>Selecciona una opción</option>
-                    <option value='España'>España</option>
+                    <option value='1'>España</option>
                     <option value='Portugal'>Portugal</option>
                   </select>
                 </div>
@@ -93,8 +117,8 @@ export default function RegisterComponent ({ params: { lang } } : { params: { la
                   <input type='text' onChange={handleChange} name='city' required id='city' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
-                  <label htmlFor='ZIP' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Código postal*</label>
-                  <input type='text' onChange={handleChange} name='ZIP' required id='ZIP' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                  <label htmlFor='postalCode' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Código postal*</label>
+                  <input type='text' onChange={handleChange} name='postalCode' required id='postalCode' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
                   <label htmlFor='businessName' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Nombre de la empresa*</label>
