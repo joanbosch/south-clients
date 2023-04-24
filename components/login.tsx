@@ -26,7 +26,7 @@ export default function LoginComponent ({ params: { lang } } : { params: { lang:
     console.log('login')
     const response = await axios.post('/api/auth/login', credentials)
     if (response.status === 200) {
-      router.push('/es/dashboard')
+      router.push('/es/admin')
     }
   }
 

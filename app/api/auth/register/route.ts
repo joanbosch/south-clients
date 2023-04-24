@@ -2,7 +2,7 @@ import executeQuery from '../../../../utils/executeQuery'
 
 export async function POST (request: Request) {
   // eslint-disable-next-line no-unused-vars
-  const { name, surname, phone, email, confirmEmail, password, confirmPassword, adress, adressOptional, country, province, city, postalCode, businessName, NIF } = await request.body?.getReader().read().then((data) => {
+  const { name, surname, phone, phoneOptional, email, confirmEmail, password, confirmPassword, adress, adressOptional, country, province, city, postalCode, businessName, NIF } = await request.body?.getReader().read().then((data) => {
     return JSON.parse(new TextDecoder().decode(data.value))
   })
 
