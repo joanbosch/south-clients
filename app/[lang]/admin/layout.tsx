@@ -1,7 +1,7 @@
 'use client'
 
 import Providers from '../../../components/Providers'
-import Headers from '../../../components/Headers'
+import HeadersAdmin from '../../../components/HeadersAdmin'
 import React from 'react'
 import Footer from '@/components/Footer'
 
@@ -13,7 +13,7 @@ export default function Layout ({
   return (
     <>
       <Providers>
-        <Headers />
+        <HeadersAdmin />
         {children}
         <Footer />
       </Providers>
