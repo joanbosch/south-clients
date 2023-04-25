@@ -48,10 +48,10 @@ export default function RegisterComponent ({ params: { lang } } : { params: { la
     e.preventDefault()
     console.log(userData)
     checkData()
-    // const response = await axios.post('/api/auth/register', userData)
-    // if (response.status === 200) {
-    //   router.push('/es/dashboard')
-    // }
+    const response = await axios.post('/api/auth/register', userData)
+    if (response.status === 200) {
+      router.push('/es/dashboard')
+    }
   }
 
   return (
