@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import CartBtn from './elements/CartBtn'
 import Image from 'next/image'
 
 const HeadersAdmin = () => {
