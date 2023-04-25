@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import React from 'react'
 
 // import { useTranslation } from '../app/i18n/client'
 
@@ -52,6 +53,12 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
     if (response.status === 200) {
       router.push('/es/dashboard')
     }
+  }
+
+  const [showBillmentForm, setShowBillmentForm] = React.useState(false)
+
+  const toggleVisibleBillmentForm = () => {
+    setShowBillmentForm(current => !current)
   }
 
   return (
@@ -141,9 +148,49 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
                   <input type='text' onChange={handleChange} name='NIF' required id='NIF' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div className='flex items-center'>
-                  <input className='mr-2' type='checkbox' name='copyData' value='1' />
+                  <input className='mr-2' type='checkbox' name='copyData' value='1' onClick={() => toggleVisibleBillmentForm()} />
                   <div className='block text-sm font-medium text-gray-900 dark:text-black'>Usar datos diferentes a la dirección de envío</div>
                 </div>
+                {showBillmentForm
+                  ? (
+                    <>
+                      <div>
+                        <label htmlFor='adressBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Dirección*</label>
+                        <input type='text' onChange={handleChange} name='adressBillment' required id='adressBillment' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                      </div>
+                      <div>
+                        <label htmlFor='adressBillmentOptional' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Datos adicionales dirección</label>
+                        <input type='text' onChange={handleChange} name='adressBillmentOptional' required id='adressBillmentOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                      </div>
+                      <div>
+                        <label htmlFor='phoneBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Teléfono*</label>
+                        <input type='text' onChange={handleChange} name='phoneBillment' required id='phoneBillment' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                      </div>
+                      <div>
+                        <label htmlFor='countryBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>País*</label>
+                        <select onChange={handleChange} name='countryBillment' required id='countryBillment' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500'>
+                          <option value=''>Selecciona una opción</option>
+                          <option value='1'>España</option>
+                          <option value='Portugal'>Portugal</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor='provinceBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Provincia*</label>
+                        <input type='text' onChange={handleChange} name='provinceBillment' required id='provinceBillment' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                      </div>
+                      <div>
+                        <label htmlFor='cityBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Ciudad*</label>
+                        <input type='text' onChange={handleChange} name='cityBillment' required id='cityBillment' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                      </div>
+                      <div>
+                        <label htmlFor='postalCodeBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Código postal*</label>
+                        <input type='text' onChange={handleChange} name='postalCodeBillment' required id='postalCodeBillment' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                      </div>
+                    </>
+                    )
+                  : (
+                    <></>
+                    )}
 
                 <button type='submit' className='w-full text-white bg-southBrown hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-southBlue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-southBlue-600 dark:hover:bg-southBlue-700 dark:focus:ring-southBlue-800'>Guardar</button>
               </form>
