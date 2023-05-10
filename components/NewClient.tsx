@@ -13,18 +13,28 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
     name: '',
     surname: '',
     phone: '',
+    phoneOptional: '',
     email: '',
     confirmEmail: '',
-    password: '',
-    confirmPassword: '',
+
+    adressName: '',
     adress: '',
     adressOptional: '',
     country: '',
     province: '',
     city: '',
     postalCode: '',
+
     businessName: '',
-    NIF: ''
+    NIF: '',
+    copyData: true,
+    adressBillment: '',
+    adressBillmentOptional: '',
+    phoneBillment: '',
+    countryBillment: '',
+    provinceBillment: '',
+    cityBillment: '',
+    postalCodeBillment: ''
   })
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -35,9 +45,7 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
   }
 
   const checkData = () => {
-    if (userData.password !== userData.confirmPassword) {
-      console.log('contraseñas no coinciden')
-    } else if (userData.email !== userData.confirmEmail) {
+    if (userData.email !== userData.confirmEmail) {
       console.log('emails no coinciden')
     } else {
       console.log('todo correcto')
@@ -58,6 +66,10 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
 
   const toggleVisibleBillmentForm = () => {
     setShowBillmentForm(current => !current)
+    setUserData({
+      ...userData,
+      copyData: showBillmentForm
+    })
   }
 
   return (
@@ -86,7 +98,7 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
                 </div>
                 <div>
                   <label htmlFor='phoneOptional' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Teléfono alternativo</label>
-                  <input type='text' onChange={handleChange} name='phoneOptional' required id='phoneOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                  <input type='text' onChange={handleChange} name='phoneOptional' id='phoneOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
                   <label htmlFor='email' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Correo electrónico*</label>
@@ -100,8 +112,8 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
                 <br />
                 <h2 className='font-bold'>Dirección de envío</h2>
                 <div>
-                  <label htmlFor='name' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Nombre*</label>
-                  <input type='text' onChange={handleChange} name='name' required id='name' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                  <label htmlFor='adressName' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Nombre*</label>
+                  <input type='text' onChange={handleChange} name='adressName' required id='adressName' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
                   <label htmlFor='adress' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Dirección*</label>
@@ -109,7 +121,7 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
                 </div>
                 <div>
                   <label htmlFor='adressOptional' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Datos adicionales dirección</label>
-                  <input type='text' onChange={handleChange} name='adressOptional' required id='adressOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                  <input type='text' onChange={handleChange} name='adressOptional' id='adressOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div>
                   <label htmlFor='phone' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Teléfono*</label>
@@ -147,7 +159,7 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
                   <input type='text' onChange={handleChange} name='NIF' required id='NIF' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                 </div>
                 <div className='flex items-center'>
-                  <input className='mr-2' type='checkbox' name='copyData' value='1' onClick={() => toggleVisibleBillmentForm()} />
+                  <input className='mr-2' type='checkbox' name='copyData' id='copyData' onClick={() => toggleVisibleBillmentForm()} />
                   <div className='block text-sm font-medium text-gray-900 dark:text-black'>Usar datos diferentes a la dirección de envío</div>
                 </div>
                 {showBillmentForm
@@ -159,7 +171,7 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
                       </div>
                       <div>
                         <label htmlFor='adressBillmentOptional' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Datos adicionales dirección</label>
-                        <input type='text' onChange={handleChange} name='adressBillmentOptional' required id='adressBillmentOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                        <input type='text' onChange={handleChange} name='adressBillmentOptional' id='adressBillmentOptional' className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                       </div>
                       <div>
                         <label htmlFor='phoneBillment' className='block mb-2 text-sm font-medium text-gray-900 dark:text-black'>Teléfono*</label>
