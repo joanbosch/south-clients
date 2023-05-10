@@ -56,9 +56,9 @@ export default function NewClientComponent ({ params: { lang } } : { params: { l
     e.preventDefault()
     console.log(userData)
     checkData()
-    const response = await axios.post('/api/auth/register', userData)
+    const response = await axios.post('/api/clients', userData)
     if (response.status === 200) {
-      router.push('/es/dashboard')
+      router.push('/es/admin')
     }
   }
 
