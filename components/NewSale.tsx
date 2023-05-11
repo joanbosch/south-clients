@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BillmentCard from './BillmentCard'
 
 // import { useTranslation } from '../app/i18n/client'
@@ -30,6 +30,12 @@ async function getProducts () {
 export default async function NewSaleComponent ({ params: { lang } } : { params: { lang: string } }) {
   const clientes = await getClients()
   const productos = await getProducts()
+
+  const [tarjetaSeleccionada, setTarjetaSeleccionada] = useState(null)
+
+  function handleChange(event) {
+    setTarjetaSeleccionada(event.target.value)
+  }
 
   return (
     <>
@@ -75,23 +81,17 @@ export default async function NewSaleComponent ({ params: { lang } } : { params:
                 </div>
 
                 <h2 className='font-bold'> Dirección de Facturación </h2>
-                <div className='flex flex-col items-center justify-center mx-auto lg:py-0'>
-                  <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-southDarkBrown-800 dark:border-southDarkBrown-700'>
-                    <div className='p-6  sm:p-4'>
-                      <BillmentCard
-                        name='hola'
-                        NIF='NIF'
-                        adress='adress'
-                        phone='phone'
-                        country='country'
-                        city='city'
-                        postalCode='postalCode'
-                      />
-                    </div>
-                  </div>
-                </div>
-
-
+                <BillmentCard
+                  name='hola'
+                  NIF='NIF'
+                  adress='adress'
+                  phone='phone'
+                  country='country'
+                  city='city'
+                  postalCode='postalCode'
+                  selected={false}
+                  onChange={handleChange}
+                />
                 <button type='submit' className='w-full text-white bg-southBrown hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-southBlue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-southBlue-600 dark:hover:bg-southBlue-700 dark:focus:ring-southBlue-800'>Guardar</button>
               </form>
             </div>
