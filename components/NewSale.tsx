@@ -58,6 +58,47 @@ export default async function NewSaleComponent ({ params: { lang } } : { params:
                   postalCode='postalCode'
                   selected={false}
                 />
+
+                <BillmentCard
+                  name='hola'
+                  NIF='NIF'
+                  adress='adress'
+                  phone='phone'
+                  country='country'
+                  city='city'
+                  postalCode='postalCode'
+                  selected={false}
+                />
+
+                <h2 className='font-bold'> Dirección de Envío </h2>
+                <BillmentCard
+                  name='hola'
+                  NIF='NIF'
+                  adress='adress'
+                  phone='phone'
+                  country='country'
+                  city='city'
+                  postalCode='postalCode'
+                  selected={false}
+                />
+
+                <h2 className='font-bold'> Método de pago </h2>
+                <div className='flex items-center'>
+                  <input className='mr-2' type='checkbox' name='copyData' id='copyData' />
+                  <div className='block text-sm font-medium text-gray-900 dark:text-black'>Black</div>
+                </div>
+                <div className='flex items-center'>
+                  <input className='mr-2' type='checkbox' name='copyData' id='copyData' />
+                  <div className='block text-sm font-medium text-gray-900 dark:text-black'>Transferencia bancaria</div>
+                </div>
+                <div className='flex items-center'>
+                  <input className='mr-2' type='checkbox' name='copyData' id='copyData' />
+                  <div className='block text-sm font-medium text-gray-900 dark:text-black'>30 dias</div>
+                </div>
+                <div className='flex items-center'>
+                  <input className='mr-2' type='checkbox' name='copyData' id='copyData' />
+                  <div className='block text-sm font-medium text-gray-900 dark:text-black'>Deposito</div>
+                </div>
                 <button type='submit' className='w-full text-white bg-southBrown hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-southBlue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-southBlue-600 dark:hover:bg-southBlue-700 dark:focus:ring-southBlue-800'>Guardar</button>
               </form>
             </div>
