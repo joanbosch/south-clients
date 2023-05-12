@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import BillmentCard from './BillmentCard'
-
-// import { useTranslation } from '../app/i18n/client'
+import ClientSelector from './ClientSelector'
 
 async function getClients () {
   const res = await fetch(`${process.env.API_URL}/api/clients`, {
@@ -31,12 +30,6 @@ export default async function NewSaleComponent ({ params: { lang } } : { params:
   const clientes = await getClients()
   const productos = await getProducts()
 
-  const [tarjetaSeleccionada, setTarjetaSeleccionada] = useState(null)
-
-  function handleChange(event) {
-    setTarjetaSeleccionada(event.target.value)
-  }
-
   return (
     <>
       <section className='bg-gray-100 md:pt-5 md:pb-10 lg:pt-10 lg:pb-20'>
@@ -47,14 +40,9 @@ export default async function NewSaleComponent ({ params: { lang } } : { params:
                 Registrar Nueva Venta
               </h1>
               <form className='space-y-4 md:space-y-6'>
-                <h2 className='font-bold'> Cliente </h2>
-                <select className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-southClearBrown2-700 dark:border-southDarkBrown2-600 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-                  {clientes.map((cliente : any) => (
-                    <option key={cliente.ID} value={cliente.ID}>
-                      {cliente.Client}
-                    </option>
-                  ))}
-                </select>
+                <ClientSelector
+                  clientes={clientes}
+                />
 
                 <h2 className='font-bold'> Artículos </h2>
                 <div className='flex flex-col items-center justify-center mx-auto lg:py-0'>
@@ -90,7 +78,6 @@ export default async function NewSaleComponent ({ params: { lang } } : { params:
                   city='city'
                   postalCode='postalCode'
                   selected={false}
-                  onChange={handleChange}
                 />
                 <button type='submit' className='w-full text-white bg-southBrown hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-southBlue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-southBlue-600 dark:hover:bg-southBlue-700 dark:focus:ring-southBlue-800'>Guardar</button>
               </form>
